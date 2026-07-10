@@ -1,0 +1,24 @@
+# Source (published output lives in dist/, built via `npm run build`)
+src/
+dev/
+
+# Config
+tsconfig.json
+tsconfig.app.json
+tsconfig.build.json
+tsconfig.node.json
+vite.config.ts
+eslint.config.js
+
+# Contributor-facing docs, not needed by consumers
+ADDING_COMPONENTS.md
+BUILD_EXPLAINED.md
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Misc
+*.log
+.gitignore

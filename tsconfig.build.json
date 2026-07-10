@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "strict": true,
+
+    /* isolatedModules ensures each file is safe for single-file transpilation (esbuild/Vite).
+       verbatimModuleSyntax (above) already covers this in TS 5+, but keeping it explicit
+       serves as documentation and catches edge cases. */
+    "isolatedModules": true,
+
+    /* Emit only .d.ts — Vite handles JS output */
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "noEmit": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

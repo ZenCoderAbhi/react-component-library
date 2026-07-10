@@ -1,0 +1,60 @@
+@import "../root.css";
+
+.defaultButtonStyling {
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    font-family: var(--robotoMedium);
+}
+
+.button-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sm-btn {
+    font-size: var(--font-size12px);
+    height: 30px;
+    padding : 0 10px;
+}
+
+.md-btn {
+    font-size: var(--font-size14px);
+    height: 35px;
+    padding : 0 15px;
+}
+
+.lg-btn {
+    font-size: var(--font-size16px);
+    height: 40px;
+    padding : 0 20px;
+}
+
+.primary-btn {
+    background-color: var(--primary-button-color);
+    color: var(--primary-button-text-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-button-hover-color);
+}
+
+.primary-btn:disabled {
+    background-color: var(--primary-button-disabled-color);
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-button-color);
+    color: var(--secondary-button-text-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--secondary-button-hover-color);
+}
+
+.secondary-btn:disabled {
+    background-color: var(--secondary-button-disabled-color);
+    cursor: not-allowed;
+}

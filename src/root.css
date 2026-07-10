@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Roboto Normal';
+    src: url('./Roboto/Roboto-Light.ttf');
+
+}
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('./Roboto/Roboto-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('./Roboto/Roboto-Bold.ttf');
+}
+
+
+:root {
+    --primary-button-color : #4e99e9;
+    --primary-button-text-color : #ffffff;
+    --primary-button-hover-color : #3b7dc4;
+    --primary-button-disabled-color : #a0c4e8;
+    --secondary-button-color : #e0e0e0;
+    --secondary-button-text-color : #333333;
+    --secondary-button-hover-color : #d0d0d0;
+    --secondary-button-disabled-color : #f0f0f0;
+    --secondary-button-border-color : #cccccc;
+    --font-size12px : 0.75rem;
+    --font-size14px : 0.875rem;
+    --font-size16px : 1rem;
+    --font-size18px : 1.125rem;
+    --border-radius5px : 5px;
+    --border-radius8px : 8px;
+    --robotoNormal : 'Roboto Normal' ;
+    --robotoMedium : 'Roboto Medium' ;
+    --robotoBold : 'Roboto Bold' ;
+    --toggle-checked-color : #4e99e9;
+    --toggle-unchecked-color : #e0e0e0;
+    --box-shadow : 0 0 16px rgba(0, 0, 0, 0.12);
+    --white-background-color : #ffffff;
+    --gap-10px : 10px;
+    --dropdown-hover-color : #73cddd;
+}
+
+.rounded-border5px {
+    border-radius: var(--border-radius5px);
+}
+
+.rounded-border8px {
+    border-radius: var(--border-radius8px);
+}
+
+.box-shadow {
+    box-shadow: var(--box-shadow);
+}
+
+
+
