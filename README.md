@@ -79,6 +79,13 @@ function Example() {
 ```tsx
 import { useState } from "react";
 import { DropDown } from "@zencoderabhi/my-react-library";
+import type { DropDownItem } from "@zencoderabhi/my-react-library";
+
+const dropdownList: DropDownItem[] = [
+  { id: 1, value: "apple" },
+  { id: 2, value: "banana" },
+  { id: 3, value: "cherry" },
+];
 
 function Example() {
   const [value, setValue] = useState("apple");
@@ -86,12 +93,30 @@ function Example() {
   return (
     <DropDown
       valueSelected={value}
-      dropdownList={[
-        { id: 1, value: "apple" },
-        { id: 2, value: "banana" },
-        { id: 3, value: "cherry" },
-      ]}
-      onChange={setValue}
+      dropdownList={dropdownList}
+      onChange={(item) => setValue(item.value.toString())}
+      searchable
+    />
+  );
+}
+```
+
+Multi-select mode lets users pick several options and confirm with an "OK" button:
+
+```tsx
+import { useState } from "react";
+import { DropDown } from "@zencoderabhi/my-react-library";
+import type { DropDownItem } from "@zencoderabhi/my-react-library";
+
+function MultiExample() {
+  const [selected, setSelected] = useState<DropDownItem[]>([]);
+
+  return (
+    <DropDown
+      valueSelected={selected.length === 0 ? "Select an option" : `${selected.length} options selected`}
+      dropdownList={dropdownList}
+      type="multiple"
+      onMultiChange={setSelected}
       searchable
     />
   );
@@ -102,10 +127,11 @@ function Example() {
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `valueSelected` | `string` | — | Currently selected value |
+| `valueSelected` | `string` | — | Currently selected value (or a summary label for multi-select) |
 | `dropdownList` | `DropDownItem[]` | — | List of `{ id, value }` options |
-| `onChange` | `(value: string) => void` | — | Called when an option is selected |
-| `type` | `"single" \| "multiple"` | — | Selection mode |
+| `onChange` | `(item: DropDownItem) => void` | — | Called with the selected item when `type` is `"single"` |
+| `onMultiChange` | `(items: DropDownItem[]) => void` | — | Called with the selected items when the user confirms in `"multiple"` mode |
+| `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
 | `searchable` | `boolean` | — | Shows a search input to filter options |
 
 ### Toggle

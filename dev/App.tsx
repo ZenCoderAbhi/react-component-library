@@ -6,6 +6,8 @@ import Card from "../src/Card/Card";
 import DropDown from "../src/DropDown/DropDown";
 import type { DropDownItem } from "../src/DropDown/DropDown";
 
+
+
 const dropdownList: DropDownItem[] = [
   { id: 1, value: "Apple" },
   { id: 2, value: "Banana" },
@@ -20,12 +22,18 @@ function App() {
 
   const [dropdownValue, setDropdownValue] = useState("Apple");
 
+  const [multiDropdownValue, setMultiDropdownValue] = useState<DropDownItem[]>([]);
+
   function handleToggleChange() {
     setToggleChecked(!toggleChecked);
   }
 
-  function handleDropdownChange(value: string) {
-    setDropdownValue(value);
+  function handleDropdownChange(item :DropDownItem) {
+    setDropdownValue(item.value.toLocaleString());
+  }
+
+  function handleMultiDropdownChange(item :DropDownItem[]) {
+    setMultiDropdownValue(item);
   }
 
   return (
@@ -78,6 +86,12 @@ function App() {
       <span>======================</span>
       <div style={{width:"200px", height:"30px"}}>
         <DropDown  valueSelected={dropdownValue} dropdownList={dropdownList} onChange={handleDropdownChange} searchable={true} />
+      </div>
+
+      <h3>Fourth Component MultiSelection DropDown </h3>
+      <span>======================</span>
+      <div style={{width:"200px", height:"30px"}}>
+        <DropDown  valueSelected={multiDropdownValue.length===0 ? "Select an option" : `${multiDropdownValue.length} options selected`} dropdownList={dropdownList} type="multiple" onMultiChange={handleMultiDropdownChange} searchable={true} />
       </div>
     </div>
   );

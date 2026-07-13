@@ -50,6 +50,9 @@
     font-family: var(--robotoMedium);
     font-size: var(--font-size12px);
     border-radius: var(--border-radius5px);
+    display : flex;
+    align-items : center;
+    gap: var(--gap-10px);
 }
 
 .dropdown-item:hover {
@@ -78,5 +81,22 @@
 
 .dropdown-search:focus {
     outline: none;
-    
+}
+
+.dropdown-checkbox {
+    margin: 0px;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--border-radius8px);
+    border: 1px solid var(--secondary-button-border-color);
+}
+
+.dropdown-checkbox:hover {
+    outline: none;
+}
+
+.dropdown-multi-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }

@@ -2,6 +2,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import "./DropdownStyles.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useMemo, useRef, useState } from "react";
+import Button from "../Button";
 
 export interface DropDownItem {
     id : string | number;
@@ -9,20 +10,22 @@ export interface DropDownItem {
 }
 
 export interface DropDownProps {
-    valueSelected: string;
+    valueSelected: string ;
     dropdownList : DropDownItem[];
-    onChange: (value: string) => void;
+    onChange?: (item:DropDownItem ) => void;
+    onMultiChange?: (item:DropDownItem[]) => void;
     type?: "single" | "multiple";
     searchable?: boolean;
 }
 
 
 
-export default function DropDown({ valueSelected, dropdownList, onChange, searchable }: DropDownProps) {
+export default function DropDown({ valueSelected, dropdownList, onChange, onMultiChange,type, searchable }: DropDownProps) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [direction, setDirection] = useState<"up" | "down">("down");
+    const [selectedItems, setSelectedItems] = useState<DropDownItem[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const filteredList = useMemo(() => {
@@ -68,6 +71,23 @@ export default function DropDown({ valueSelected, dropdownList, onChange, search
         setIsOpen(true);
     };
 
+    const handleDropdownChange = (item: DropDownItem) => {
+        if(type === "multiple") {
+            setSelectedItems(prevSelected => {
+                const isSelected = prevSelected.some(selected => selected.id === item.id);
+                if (isSelected) {
+                    return prevSelected.filter(selected => selected.id !== item.id);
+                } else {
+                    return [...prevSelected, item];
+                }
+            });
+        }
+        else {
+            onChange?.(item);
+        }
+        
+    }
+
     return (
         <>
         <div className="dropdown-container" ref={containerRef}>
@@ -89,12 +109,23 @@ export default function DropDown({ valueSelected, dropdownList, onChange, search
                         />
                     )}
                     {filteredList.map((item) => (
-                        <span key={item.id} className="dropdown-item" onClick={()=> {onChange(item.value.toString()); closeDropdown();}}>
-                            {item.value}
-                        </span>
+                        <div className="dropdown-item" onClick={()=> {handleDropdownChange(item); if(type !== "multiple"){closeDropdown();}}} key={item.id}>
+                            {type === "multiple" && (
+                                <input type="checkbox" className="dropdown-checkbox" checked={selectedItems.some(selected => selected.id === item.id)} readOnly />
+                            )}
+                            <span  >
+                                {item.value}
+                            </span>
+                        </div>
                     ))}
                     {filteredList.length === 0 && (
                         <span className="dropdown-no-results">No results found</span>
+                    )}
+                    {type === "multiple" && (
+                        <div className="dropdown-multi-actions">
+
+                            <Button label="OK" onClick={() => {onMultiChange?.(selectedItems); closeDropdown();}} size="small" variant="primary"/>
+                        </div>
                     )}
                 </div>
             )}
