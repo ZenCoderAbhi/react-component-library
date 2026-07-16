@@ -19,6 +19,7 @@ import "@zencoderabhi/my-react-library/dist/style.css";
 - [Button](#button)
 - [Card](#card)
 - [DropDown](#dropdown)
+- [Popup](#popup)
 - [Toggle](#toggle)
 
 ### Button
@@ -133,6 +134,45 @@ function MultiExample() {
 | `onMultiChange` | `(items: DropDownItem[]) => void` | — | Called with the selected items when the user confirms in `"multiple"` mode |
 | `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
 | `searchable` | `boolean` | — | Shows a search input to filter options |
+
+### Popup
+
+```tsx
+import { useState } from "react";
+import { Popup } from "@zencoderabhi/my-react-library";
+
+function Example() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Popup
+      open={open}
+      onClose={() => setOpen(false)}
+      type="delete"
+      popupHeader="Delete item?"
+    />
+  );
+}
+```
+
+Use `type="default"` to render arbitrary content instead of the built-in header/actions:
+
+```tsx
+<Popup open={open} onClose={() => setOpen(false)}>
+  <p>Any custom content goes here.</p>
+</Popup>
+```
+
+**Props**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `open` | `boolean` | — | Whether the popup is visible |
+| `onClose` | `() => void` | — | Called when the overlay, close icon, or an action button is clicked |
+| `children` | `React.ReactNode` | — | Content rendered when `type` is `"default"` |
+| `popupHeader` | `string` | — | Header text shown for non-default types |
+| `type` | `"delete" \| "error" \| "success" \| "info" \| "default"` | `"default"` | Controls the icon and action buttons shown |
+| `transparent` | `boolean` | `false` | Renders the overlay with a transparent background |
 
 ### Toggle
 

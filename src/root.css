@@ -30,17 +30,33 @@
     --font-size14px : 0.875rem;
     --font-size16px : 1rem;
     --font-size18px : 1.125rem;
+    --font-size20px : 1.25rem;
     --border-radius5px : 5px;
     --border-radius8px : 8px;
+    --border-radius12px : 12px;
     --robotoNormal : 'Roboto Normal' ;
     --robotoMedium : 'Roboto Medium' ;
     --robotoBold : 'Roboto Bold' ;
     --toggle-checked-color : #4e99e9;
     --toggle-unchecked-color : #e0e0e0;
     --box-shadow : 0 0 16px rgba(0, 0, 0, 0.12);
+    --box-shadow-lg : 0 12px 40px rgba(0, 0, 0, 0.18);
     --white-background-color : #ffffff;
     --gap-10px : 10px;
+    --gap-16px : 16px;
     --dropdown-hover-color : #73cddd;
+    --border-color-light : #ebebeb;
+    --body-text-color : #333333;
+    --muted-text-color : #737373;
+    --transition-fast : 0.2s ease-in-out;
+    --popup-delete-color : #f10606;
+    --popup-delete-bg : rgba(241, 6, 6, 0.1);
+    --popup-error-color : #f10909;
+    --popup-error-bg : rgba(241, 9, 9, 0.1);
+    --popup-success-color : #63e6be;
+    --popup-success-bg : rgba(99, 230, 190, 0.18);
+    --popup-info-color : #ffd43b;
+    --popup-info-bg : rgba(255, 212, 59, 0.2);
 }
 
 .rounded-border5px {

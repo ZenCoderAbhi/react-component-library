@@ -5,6 +5,7 @@ import { Eye } from 'lucide-react';
 import Card from "../src/Card/Card";
 import DropDown from "../src/DropDown/DropDown";
 import type { DropDownItem } from "../src/DropDown/DropDown";
+import Popup from "../src/Popup/Popup";
 
 
 
@@ -23,6 +24,12 @@ function App() {
   const [dropdownValue, setDropdownValue] = useState("Apple");
 
   const [multiDropdownValue, setMultiDropdownValue] = useState<DropDownItem[]>([]);
+
+  const [popupOpen, setPopupOpen] = useState(false);
+
+  const handlePopupToggle = () => {
+    setPopupOpen(!popupOpen)
+  }
 
   function handleToggleChange() {
     setToggleChecked(!toggleChecked);
@@ -93,6 +100,13 @@ function App() {
       <div style={{width:"200px", height:"30px"}}>
         <DropDown  valueSelected={multiDropdownValue.length===0 ? "Select an option" : `${multiDropdownValue.length} options selected`} dropdownList={dropdownList} type="multiple" onMultiChange={handleMultiDropdownChange} searchable={true} />
       </div>
+      <span>======================</span>
+
+      <h3>Fifth Component Popup </h3>
+      <span>======================</span>
+      <Button label="Open Popup" onClick={()=>setPopupOpen(true)} variant="primary" size="medium" />
+      <Popup open={popupOpen} type="delete" onClose={handlePopupToggle} popupHeader="Are you sure you want to delete?"/>
+      <span>======================</span>
     </div>
   );
 }

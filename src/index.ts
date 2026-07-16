@@ -6,3 +6,5 @@ export { default as DropDown } from "./DropDown";
 export type { DropDownProps, DropDownItem } from "./DropDown";
 export { default as Card } from "./Card";
 export type { CardProps } from "./Card";
+export { default as Popup } from "./Popup";
+export type { PopupProps } from "./Popup";

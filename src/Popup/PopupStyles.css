@@ -1,0 +1,116 @@
+@import url('../root.css');
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: popup-overlay-fade var(--transition-fast);
+    z-index: 1000;
+}
+
+.popup-container.popup-transparent {
+    background-color: transparent;
+}
+
+.popup-content {
+    background-color: var(--white-background-color);
+    border-radius: var(--border-radius12px);
+    box-shadow: var(--box-shadow-lg);
+    width: 420px;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 16px 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-10px);
+    font-family: var(--robotoNormal);
+    animation: popup-content-in var(--transition-fast);
+}
+
+.popup-close {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-10px);
+    font-family: var(--robotoBold);
+    font-size: var(--font-size18px);
+    color: var(--body-text-color);
+    padding-bottom: var(--gap-10px);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.popup-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.popup-icon-delete {
+    background-color: var(--popup-delete-bg);
+}
+
+.popup-icon-error {
+    background-color: var(--popup-error-bg);
+}
+
+.popup-icon-success {
+    background-color: var(--popup-success-bg);
+}
+
+.popup-icon-info {
+    background-color: var(--popup-info-bg);
+}
+
+.popup-body {
+    font-family: var(--robotoNormal);
+    font-size: var(--font-size14px);
+    color: var(--muted-text-color);
+    overflow-y: auto;
+}
+
+.popup-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--gap-10px);
+    padding-top: var(--gap-10px);
+}
+
+@keyframes popup-overlay-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popup-content-in {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
