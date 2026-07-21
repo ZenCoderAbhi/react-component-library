@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./NavbarStyles.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -18,14 +18,28 @@ export function NavItem({menuName, iconImage, subMenu, onClick, collapsed}:NavIt
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
-        if (subMenu) {
-            if (collapsed) {
-                setOpen(prev => !prev);
-            }
-        } else {
+        if (!subMenu) {
             onClick?.();
         }
     };
+
+    const handleCaretClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setOpen(prev => !prev);
+    };
+
+    useEffect(() => {
+        if (!open) return;
+
+        const handleOutsideClick = (e: MouseEvent) => {
+            if (!(e.target as HTMLElement).closest('.navbar-container')) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => document.removeEventListener('mousedown', handleOutsideClick);
+    }, [open]);
 
     return (
         <div className={`navitem-wrapper ${open ? 'navitem-open' : ''}`}>
@@ -36,7 +50,7 @@ export function NavItem({menuName, iconImage, subMenu, onClick, collapsed}:NavIt
             {subMenu && (
                 <>
                     {!collapsed && (
-                        <span className="navitem-caret">
+                        <span className="navitem-caret" onClick={handleCaretClick}>
                             <FontAwesomeIcon icon={faCaretRight} size="lg" style={{color: "rgb(255, 212, 59)", cursor:"pointer"}} />
                         </span>
                     )}

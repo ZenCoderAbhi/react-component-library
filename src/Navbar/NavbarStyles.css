@@ -73,11 +73,6 @@
     z-index: 5;
 }
 
-.navitem-caret:hover ~ .navitem-submenu,
-.navitem-submenu:hover {
-    display: flex;
-}
-
 .navitem-wrapper.navitem-open .navitem-submenu {
     display: flex;
 }
