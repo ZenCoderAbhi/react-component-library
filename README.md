@@ -19,6 +19,7 @@ import "@zencoderabhi/my-react-library/dist/style.css";
 - [Button](#button)
 - [Card](#card)
 - [DropDown](#dropdown)
+- [Navbar](#navbar)
 - [Popup](#popup)
 - [Toggle](#toggle)
 
@@ -134,6 +135,48 @@ function MultiExample() {
 | `onMultiChange` | `(items: DropDownItem[]) => void` | — | Called with the selected items when the user confirms in `"multiple"` mode |
 | `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
 | `searchable` | `boolean` | — | Shows a search input to filter options |
+
+### Navbar
+
+A collapsible sidebar navigation built from a `menuList` of items, with hover flyouts (and click-to-open when collapsed) for nested `subMenu` entries.
+
+```tsx
+import { Navbar } from "@zencoderabhi/my-react-library";
+import type { NavItemProps } from "@zencoderabhi/my-react-library";
+
+const menuList: Array<NavItemProps> = [
+  { menuName: "Dashboard", iconImage: <DashboardIcon />, onClick: () => console.log("Dashboard clicked") },
+  {
+    menuName: "Settings",
+    iconImage: <SettingsIcon />,
+    subMenu: [
+      { menuName: "Account", iconImage: <AccountIcon />, onClick: () => console.log("Account clicked") },
+      { menuName: "Security", iconImage: <SecurityIcon />, onClick: () => console.log("Security clicked") },
+    ],
+  },
+];
+
+function Example() {
+  return <Navbar menuList={menuList} />;
+}
+```
+
+Items with a `subMenu` act as containers — hovering the caret (or, once the navbar is collapsed, clicking the icon) reveals the nested items as a flyout. `onClick` only fires for leaf items (those without a `subMenu`), whether they're top-level or nested.
+
+**Navbar Props**
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `menuList` | `Array<NavItemProps>` | List of items rendered in the sidebar |
+
+**NavItemProps**
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `menuName` | `string` | Label text for the item |
+| `iconImage` | `React.ReactNode` | Icon rendered before the label — accepts icons from any library (e.g. `lucide-react`, FontAwesome) |
+| `subMenu` | `Array<NavItemProps>` | Nested items shown in a flyout; when present, the item acts as a container instead of firing `onClick` |
+| `onClick` | `() => void` | Called when a leaf item (no `subMenu`) is clicked |
 
 ### Popup
 

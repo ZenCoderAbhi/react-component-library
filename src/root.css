@@ -57,6 +57,9 @@
     --popup-success-bg : rgba(99, 230, 190, 0.18);
     --popup-info-color : #ffd43b;
     --popup-info-bg : rgba(255, 212, 59, 0.2);
+    --navbar-background-color : rgb(37, 139, 173);
+    --border-bottom-variant1 : #bdbcbc;
+    --navitem-hover-color : rgba(255, 255, 255, 0.15);
 }
 
 .rounded-border5px {

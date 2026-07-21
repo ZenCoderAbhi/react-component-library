@@ -1,0 +1,88 @@
+.navbar-container {
+    height: 100%;
+    background-color: var(--navbar-background-color);
+    box-shadow: 2px 0px 5px rgba(155, 155, 155, 0.5);
+    
+}
+
+.navbar-open {
+    width: 230px;
+}
+
+.navbar-close {
+    width: 60px;
+}
+
+.navitem {
+    padding: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-bottom-variant1);
+    color: white;
+    font-family: var(--robotoNormal);
+    letter-spacing: 1.5px;
+    font-weight: 500;
+
+}
+
+.navitem-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.navbar-toggle {
+    border-bottom: none !important;
+}
+
+.navitem:hover {
+    background-color: var(--navitem-hover-color);
+    cursor: pointer;
+}
+
+.navitem-wrapper {
+    position: relative;
+}
+
+.navitem-caret {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.navitem-submenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 180px;
+    background-color: var(--navbar-background-color);
+    box-shadow: var(--box-shadow-lg);
+    z-index: 5;
+}
+
+.navitem-caret:hover ~ .navitem-submenu,
+.navitem-submenu:hover {
+    display: flex;
+}
+
+.navitem-wrapper.navitem-open .navitem-submenu {
+    display: flex;
+}
+
+.navbar-close .navitem {
+    justify-content: center;
+    padding: 12px 8px;
+}

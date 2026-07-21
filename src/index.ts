@@ -8,3 +8,5 @@ export { default as Card } from "./Card";
 export type { CardProps } from "./Card";
 export { default as Popup } from "./Popup";
 export type { PopupProps } from "./Popup";
+export { default as Navbar, NavItem } from "./Navbar";
+export type { NavItemProps, NavbarProps } from "./Navbar";
