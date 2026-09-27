@@ -19,6 +19,7 @@ import "@zencoderabhi/my-react-library/dist/style.css";
 - [Button](#button)
 - [Card](#card)
 - [DropDown](#dropdown)
+- [Image](#image)
 - [Navbar](#navbar)
 - [Popup](#popup)
 - [Toggle](#toggle)
@@ -135,6 +136,30 @@ function MultiExample() {
 | `onMultiChange` | `(items: DropDownItem[]) => void` | — | Called with the selected items when the user confirms in `"multiple"` mode |
 | `type` | `"single" \| "multiple"` | `"single"` | Selection mode |
 | `searchable` | `boolean` | — | Shows a search input to filter options |
+
+### Image
+
+A simple image carousel with left/right navigation buttons.
+
+```tsx
+import { Image } from "@zencoderabhi/my-react-library";
+
+const images = [
+  { imageId: 1, imageUrl: "https://example.com/photo-1.jpg" },
+  { imageId: 2, imageUrl: "https://example.com/photo-2.jpg" },
+  { imageId: 3, imageUrl: "https://example.com/photo-3.jpg" },
+];
+
+function Example() {
+  return <Image images={images} />;
+}
+```
+
+**Props**
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `images` | `Array<{ imageId: number; imageUrl: string }>` | List of images to display; the carousel starts at the first item |
 
 ### Navbar
 
