@@ -1,0 +1,23 @@
+.image-container {
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-left-button {
+    position: absolute;
+    top: 50%;
+    left : 0;
+}
+
+.image-right-button {
+    position: absolute;
+    top: 50%;
+    right : 0;
+}

@@ -10,3 +10,5 @@ export { default as Popup } from "./Popup";
 export type { PopupProps } from "./Popup";
 export { default as Navbar, NavItem } from "./Navbar";
 export type { NavItemProps, NavbarProps } from "./Navbar";
+export { default as Image } from "./Image";
+export type { ImageProps } from "./Image";

@@ -3,7 +3,7 @@ import "../root.css";
 
 
 export interface ButtonProps {
-    label: string;
+    label?: string;
     onClick: () => void;
     variant : "primary" | "secondary" ;
     size: "small" | "medium" | "large";

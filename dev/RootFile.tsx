@@ -7,6 +7,7 @@ import DropDown from "../src/DropDown/DropDown";
 import type { DropDownItem } from "../src/DropDown/DropDown";
 import Popup from "../src/Popup/Popup";
 import { useNavigate } from "react-router-dom";
+import Image from "../src/Image/Image";
 
 
 
@@ -17,6 +18,21 @@ const dropdownList: DropDownItem[] = [
   { id: 4, value: "Mango" },
   { id: 5, value: "Orange" },
 ];
+
+interface ImageListItem {
+  imageId: number;
+  imageUrl: string;
+}
+
+const imageList: ImageListItem[] = [
+  {imageId : 1, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6UyMUu6gXOBrOMs8mTILhavPp_EImgd_CUA78Wg56-w&s=10"},
+  {imageId : 2, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGwblbNNpafqsV3AcmYbiuGkBVnBzP_cpRormOnPfjkQ&s=10"},
+  {imageId : 3, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZzkBQxgrN5sN3avgbF_Gd4lvFntqVIttGw0dV2nfmA&s=10"},
+  {imageId : 4, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS39Qj7bFCCL9ppu7XqTkAaP_iTwg-EvZYX4j22J1maQQ&s=10"},
+  {imageId : 5, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuXOHN2EWJahzbkvHjdcALwiF77o8UKZMjgn9zMTWBPA&s=10"},
+  {imageId : 6, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW1dNS7ryxcu7gDh1MeQSBjWaixsdImEysbQQGMBQaCw&s=10"},
+  {imageId : 7, imageUrl :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREXQolNbUwmefPaP_V1nhGeo4EgAx7vKobXCtFxIALJg&s=10"},
+]
 
 function RootFile() {
 
@@ -110,8 +126,17 @@ function RootFile() {
       <Button label="Open Popup" onClick={()=>setPopupOpen(true)} variant="primary" size="medium" />
       <Popup open={popupOpen} type="delete" onClose={handlePopupToggle} popupHeader="Are you sure you want to delete?"/>
       <span>======================</span>
-
+      <h3>Sixth Component Navbar</h3>
+      <span>======================</span>
       <Button  label="Navigate to simple Page" variant="primary" size="medium" onClick={()=>navigate("/simplepage")} />
+      <span>======================</span>
+
+      <h3>Seventh Component Image</h3>
+      <span>======================</span>
+      <div style={{width:"350px", height:"350px"}}>
+        <Image images={imageList} />
+      </div>
+      <span>======================</span>
     </div>
   );
 }
