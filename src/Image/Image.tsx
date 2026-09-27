@@ -8,6 +8,7 @@ import { useState } from "react";
 interface ImageItem {
     imageId: number;
     imageUrl: string;
+    [key: string]: unknown;
 }
 
 export interface ImageProps {

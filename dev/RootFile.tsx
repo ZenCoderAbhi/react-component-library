@@ -22,6 +22,7 @@ const dropdownList: DropDownItem[] = [
 interface ImageListItem {
   imageId: number;
   imageUrl: string;
+  [key: string]: unknown;
 }
 
 const imageList: ImageListItem[] = [
