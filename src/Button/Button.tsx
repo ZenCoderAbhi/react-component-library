@@ -11,6 +11,7 @@ export interface ButtonProps {
     disabled? : boolean;
     icon?: React.ReactNode;
     ownStyles?: React.CSSProperties;
+    className?: string;
 }
 
 const sizeClassMap: Record<ButtonProps["size"], string> = {
@@ -20,9 +21,9 @@ const sizeClassMap: Record<ButtonProps["size"], string> = {
 }
 
 
-export default function Button({ label, onClick, variant, size="medium", rounded=true, disabled=false, icon, ownStyles }: ButtonProps) {
+export default function Button({ label, onClick, variant, size="medium", rounded=true, disabled=false, icon, ownStyles, className }: ButtonProps) {
 
-    const buttonClass = ["defaultButtonStyling", icon ? "button-with-icon" : "",sizeClassMap[size], rounded ? "rounded-border5px" : "", variant === "primary" ? "primary-btn" : "secondary-btn"].filter(Boolean).join(" ");
+    const buttonClass = ["defaultButtonStyling", icon ? "button-with-icon" : "",sizeClassMap[size], rounded ? "rounded-border5px" : "", variant === "primary" ? "primary-btn" : "secondary-btn", className].filter(Boolean).join(" ");
 
     return <button className={buttonClass} onClick={onClick} disabled={disabled} style={ownStyles}>
         {icon}

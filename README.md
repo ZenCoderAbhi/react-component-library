@@ -54,6 +54,20 @@ function Example() {
 | `disabled` | `boolean` | `false` | Disables the button |
 | `icon` | `React.ReactNode` | — | Optional icon rendered before the label |
 | `ownStyles` | `React.CSSProperties` | — | Inline style overrides |
+| `className` | `string` | — | Extra class(es) added to the button — use for `:hover`, `:focus`, `:active`, media queries, etc. |
+
+Inline `ownStyles` can't express pseudo-classes like `:hover`. For those, pass a `className` and define it in your own stylesheet (imported after the library's CSS so it wins on equal specificity):
+
+```css
+.my-button:hover {
+  background-color: #4c1d95;
+  transform: translateY(-1px);
+}
+```
+
+```tsx
+<Button label="Save" variant="primary" size="medium" onClick={save} className="my-button" />
+```
 
 ### Card
 
